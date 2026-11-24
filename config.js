@@ -3,7 +3,7 @@
    =========================================================== */
 window.SHOP = {
   // 1) วาง URL Web App จาก Google Apps Script ตรงนี้ (ลงท้ายด้วย /exec)
-  SCRIPT_URL: 'PASTE_YOUR_APPS_SCRIPT_URL_HERE',
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz3o5UDxLZFkAWw6oj9MRZ1KE57aBbDuhQn5NxYdaKiIiMYdsckQ7Q72T0H1yd5seqO/exec',
 
   // 2) โฟลเดอร์รูป — ปกติใช้ 'images/' (โฟลเดอร์ใน GitHub repo นี้)
   //    ถ้าเก็บรูปไว้ repo อื่น ใส่ URL เช่น
