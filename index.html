@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ยิ้มใส YIMSAI | ยาสีฟันฟันขาว ลมหายใจสดชื่น</title>
+  <meta name="description" content="ยาสีฟันยิ้มใส 3 สูตร เฟรชมินต์ ชาร์โคล และสูตรเด็ก สั่งง่าย ส่งไวทั่วไทย เก็บเงินปลายทางได้">
+  <link rel="icon" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#"><img src="images/logo.svg" alt=""> ยิ้มใส</a>
+    <nav><a href="#products">สินค้า</a><a href="#why">จุดเด่น</a><a href="#order" class="btn sm">สั่งซื้อ</a></nav>
+  </header>
+
+  <section class="hero wrap">
+    <div>
+      <span class="pill">ส่งฟรีเมื่อซื้อครบ ฿300</span>
+      <h1>ฟันขาว <em>ลมหายใจสดชื่น</em><br>ตั้งแต่แปรงแรก</h1>
+      <p>ยาสีฟันยิ้มใส 3 สูตรสำหรับทุกคนในบ้าน ผลิตในไทย ผ่าน อย. เก็บเงินปลายทางได้</p>
+      <div class="row"><a href="#products" class="btn">เลือกสินค้า</a><a href="#why" class="btn ghost">ทำไมต้องยิ้มใส</a></div>
+      <ul class="trust"><li>⭐ 4.9 จาก 2,000+ รีวิว</li><li>🚚 ส่งภายใน 24 ชม.</li><li>💵 COD</li></ul>
+    </div>
+    <img src="images/hero.svg" alt="ยาสีฟันยิ้มใส" class="hero-img">
+  </section>
+
+  <section id="products" class="wrap">
+    <h2>เลือกสูตรที่ใช่</h2>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <section id="why" class="why">
+    <div class="wrap grid4">
+      <div><b>🦷</b><h3>ฟลูออไรด์ 1,450 ppm</h3><p>ป้องกันฟันผุตามมาตรฐานทันตแพทย์</p></div>
+      <div><b>🌿</b><h3>สารสกัดธรรมชาติ</h3><p>ไม่มีพาราเบน ไม่มี SLS</p></div>
+      <div><b>✨</b><h3>ฟันขาวอย่างอ่อนโยน</h3><p>ไม่กัดกร่อนเคลือบฟัน</p></div>
+      <div><b>📦</b><h3>แพ็คอย่างดี</h3><p>ตรวจสินค้าทุกชิ้นก่อนส่ง</p></div>
+    </div>
+  </section>
+
+  <section id="order" class="wrap">
+    <h2>สั่งซื้อสินค้า</h2>
+    <div class="order">
+      <form id="orderForm" novalidate>
+        <h3>1. ข้อมูลผู้รับ</h3>
+        <label>ชื่อ-นามสกุล *<input name="name" required maxlength="100" autocomplete="name"></label>
+        <label>เบอร์โทร *<input name="phone" required inputmode="numeric" maxlength="12" placeholder="08xxxxxxxx" autocomplete="tel"></label>
+        <label>ที่อยู่ (บ้านเลขที่ ถนน ตำบล/แขวง) *<textarea name="address" required maxlength="300" rows="2"></textarea></label>
+        <div class="two">
+          <label>อำเภอ/เขต *<input name="district" required maxlength="100"></label>
+          <label>จังหวัด *<input name="province" required maxlength="100"></label>
+        </div>
+        <label>รหัสไปรษณีย์ *<input name="postcode" required inputmode="numeric" maxlength="5"></label>
+        <h3>2. การชำระเงิน</h3>
+        <div class="pay">
+          <label><input type="radio" name="payment" value="COD" checked> เก็บเงินปลายทาง</label>
+          <label><input type="radio" name="payment" value="โอนเงิน"> โอนเงิน</label>
+        </div>
+        <label>หมายเหตุ<input name="note" maxlength="300"></label>
+        <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="err" id="formErr"></p>
+      </form>
+
+      <aside class="summary">
+        <h3>สรุปคำสั่งซื้อ</h3>
+        <div id="summaryLines"></div>
+        <div class="tot"><span>ค่าสินค้า</span><span id="sSub">฿0</span></div>
+        <div class="tot"><span>ค่าส่ง</span><span id="sShip">฿0</span></div>
+        <div class="tot big"><span>ยอดรวม</span><span id="sTotal">฿0</span></div>
+        <p class="hint" id="shipHint"></p>
+        <button class="btn block" id="submitBtn" form="orderForm">ยืนยันสั่งซื้อ</button>
+      </aside>
+    </div>
+  </section>
+
+  <footer><div class="wrap">© ยิ้มใส YIMSAI · Line: @yimsai · โทร 08x-xxx-xxxx</div></footer>
+
+  <a href="#order" class="cartbar" id="cartbar">🛒 <span id="cartCount">0</span> ชิ้น · <b id="cartTotal">฿0</b> <span>สั่งซื้อ →</span></a>
+
+  <div class="modal" id="doneModal" hidden>
+    <div class="box">
+      <div class="ok">✓</div>
+      <h3>สั่งซื้อสำเร็จ!</h3>
+      <p>เลขที่คำสั่งซื้อ <b id="doneId"></b></p>
+      <p>ยอดรวม <b id="doneTotal"></b></p>
+      <p class="hint">เราจะแพ็คและส่งภายใน 24 ชม. ขอบคุณที่อุดหนุนครับ</p>
+      <button class="btn" onclick="location.reload()">ตกลง</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

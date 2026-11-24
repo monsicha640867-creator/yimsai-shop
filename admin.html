@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>หลังบ้าน ยิ้มใส | หยิบ-แพ็ค-ส่ง</title>
+  <link rel="icon" href="images/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div id="login" class="login">
+    <form id="loginForm">
+      <img src="images/logo.svg" alt="">
+      <h2>หลังบ้าน ยิ้มใส</h2>
+      <input type="password" id="keyInput" placeholder="รหัสผู้ดูแล (ADMIN_KEY)" required>
+      <button class="btn">เข้าสู่ระบบ</button>
+      <p class="err" id="loginErr"></p>
+    </form>
+  </div>
+
+  <div id="app" hidden>
+    <header class="top no-print">
+      <b>📦 หลังบ้าน ยิ้มใส</b>
+      <nav id="tabs">
+        <button data-v="orders" class="on">ออเดอร์</button>
+        <button data-v="pick">1 · หยิบสินค้า</button>
+        <button data-v="pack">2 · แพ็คสินค้า</button>
+        <button data-v="labels">3 · ใบปะหน้า</button>
+      </nav>
+      <span><button class="btn sm ghost" id="reloadBtn">↻ โหลดใหม่</button> <button class="btn sm ghost" id="logoutBtn">ออก</button></span>
+    </header>
+
+    <main>
+      <!-- ออเดอร์ -->
+      <section data-view="orders">
+        <div class="bar no-print">
+          <label>สถานะ <select id="fStatus"><option value="">ทั้งหมด</option></select></label>
+          <input id="fSearch" placeholder="ค้นหา ชื่อ / เบอร์ / OrderID">
+          <span class="sp"></span>
+          <span id="selInfo" class="mut">เลือก 0 ออเดอร์</span>
+          <select id="bulkStatus"><option value="">เปลี่ยนสถานะ…</option></select>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="tbl"><table>
+          <thead><tr><th><input type="checkbox" id="checkAll"></th><th>OrderID</th><th>วันที่</th><th>ผู้รับ</th><th>จังหวัด</th><th>สินค้า</th><th>ยอด</th><th>ชำระ</th><th>สถานะ</th><th>เลขพัสดุ</th></tr></thead>
+          <tbody id="orderRows"></tbody>
+        </table></div>
+        <p class="mut no-print">💡 ติ๊กเลือกออเดอร์ แล้วไปแท็บ 1 → 2 → 3 ตามลำดับ (ถ้าไม่เลือก ระบบจะใช้ออเดอร์ตามสถานะของแต่ละขั้น)</p>
+      </section>
+
+      <!-- หยิบสินค้า -->
+      <section data-view="pick" hidden>
+        <div class="bar no-print"><h3>ใบหยิบสินค้า (Pick List)</h3><span class="sp"></span>
+          <button class="btn sm ghost" onclick="window.print()">🖨️ พิมพ์</button>
+          <button class="btn sm" id="pickDone">✓ หยิบครบแล้ว</button></div>
+        <div id="pickArea" class="paper"></div>
+      </section>
+
+      <!-- แพ็คสินค้า -->
+      <section data-view="pack" hidden>
+        <div class="bar no-print"><h3>แพ็คสินค้า — สแกน/พิมพ์ SKU แล้วกด Enter</h3><span class="sp"></span>
+          <input id="scanInput" placeholder="สแกน SKU เช่น YS-MINT-160" autocomplete="off"></div>
+        <div id="packArea" class="packgrid"></div>
+      </section>
+
+      <!-- ใบปะหน้า -->
+      <section data-view="labels" hidden>
+        <div class="bar no-print"><h3>ใบปะหน้าพัสดุ (10×15 ซม.)</h3><span class="sp"></span>
+          <button class="btn sm ghost" onclick="window.print()">🖨️ พิมพ์ใบปะหน้า</button>
+          <button class="btn sm" id="shipDone">🚚 บันทึกส่งแล้ว</button></div>
+        <div id="trackArea" class="no-print"></div>
+        <div id="labelArea" class="labels"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script src="config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
